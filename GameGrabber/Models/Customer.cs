@@ -17,7 +17,7 @@ namespace GameGrabber.Models
         [Required]
         public int PhoneNumber { get; set; }
         [Required]
-         public Product Product { get; set; }
+         public string ItemPurchased { get; set; }
         
 
 
