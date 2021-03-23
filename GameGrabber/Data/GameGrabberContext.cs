@@ -25,5 +25,6 @@ namespace GameGrabber.Data
             modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<Product>().ToTable("Product");
         }
+        public DbSet<GameGrabber.Models.Sales> Sales { get; set; }
     }
 }
