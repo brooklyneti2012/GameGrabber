@@ -24,9 +24,9 @@ namespace GameGrabber.Data
 
             var Customers = new Customer[]
             {
-                new Customer{CustomerID = 0, LastName="Eti", FirstMidName="Brooklyn", Address = "27d Sunshine drive", ItemPurchased = "PS4", PhoneNumber = 0212623205},
-                new Customer{CustomerID = 1, LastName="Sese", FirstMidName="Cyruss", Address = "45 Malcolm Street", ItemPurchased = "Xbox", PhoneNumber = 0217365489},
-                new Customer{CustomerID = 2, LastName="Shah", FirstMidName="Aryan", Address = "19 Your Dads Avenue", ItemPurchased = "Iphone 12", PhoneNumber = 0276543785}
+                new Customer{LastName="Eti", FirstMidName="Brooklyn", Address = "27d Sunshine drive", ItemPurchased = "PS4", PhoneNumber = 0212623205},
+                new Customer{LastName="Sese", FirstMidName="Cyruss", Address = "45 Malcolm Street", ItemPurchased = "Xbox", PhoneNumber = 0217365489},
+                new Customer{LastName="Shah", FirstMidName="Aryan", Address = "19 Your Dads Avenue", ItemPurchased = "Iphone 12", PhoneNumber = 0276543785}
             };
 
             context.Customers.AddRange(Customers);
@@ -39,8 +39,8 @@ namespace GameGrabber.Data
 
             var Employees = new Employee[]
             {
-                new Employee{EmployeeID = 0, EmployeeFirstName = "Davion", EmployeeLastName = "Tevi"},
-                new Employee{EmployeeID = 1, EmployeeFirstName = "Jimi", EmployeeLastName = "Sipeli"}
+                new Employee{EmployeeFirstName = "Davion", EmployeeLastName = "Tevi"},
+                new Employee{EmployeeFirstName = "Jimi", EmployeeLastName = "Sipeli"}
                 
             };
 
