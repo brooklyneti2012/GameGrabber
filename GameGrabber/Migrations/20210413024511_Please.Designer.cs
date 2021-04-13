@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameGrabber.Migrations
 {
     [DbContext(typeof(GameGrabberContext))]
-    [Migration("20210324010035_please")]
-    partial class please
+    [Migration("20210413024511_Please")]
+    partial class Please
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -101,45 +101,15 @@ namespace GameGrabber.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomersName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductsName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SalesID");
 
-                    b.HasIndex("CustomerID");
-
-                    b.HasIndex("EmployeeID");
-
-                    b.HasIndex("ProductID");
-
                     b.ToTable("Sales");
-                });
-
-            modelBuilder.Entity("GameGrabber.Models.Sales", b =>
-                {
-                    b.HasOne("GameGrabber.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GameGrabber.Models.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GameGrabber.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

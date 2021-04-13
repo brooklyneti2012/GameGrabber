@@ -21,8 +21,6 @@ namespace GameGrabber.Pages.SalesPage
 
         public IActionResult OnGet()
         {
-        ViewData["Customer"] = new SelectList(_context.Customers, "CustomerID", "FirstMidName");
-        ViewData["Product"] = new SelectList(_context.Product, "ProductID", "ProductName");
             return Page();
         }
 

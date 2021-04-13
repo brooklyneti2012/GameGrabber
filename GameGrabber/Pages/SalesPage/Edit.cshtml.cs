@@ -30,16 +30,12 @@ namespace GameGrabber.Pages.SalesPage
                 return NotFound();
             }
 
-            Sales = await _context.Sales
-                .Include(s => s.Customer)
-                .Include(s => s.Product).FirstOrDefaultAsync(m => m.SalesID == id);
+            Sales = await _context.Sales.FirstOrDefaultAsync(m => m.SalesID == id);
 
             if (Sales == null)
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customers, "CustomerID", "Address");
-           ViewData["ProductID"] = new SelectList(_context.Product, "ProductID", "ProductID");
             return Page();
         }
 

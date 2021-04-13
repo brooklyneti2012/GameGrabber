@@ -2,7 +2,7 @@
 @model GameGrabber.Pages.SalesPage.IndexModel
 
 @{
-    ViewData["Title"] = "Sales";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Sales[0].Customer)
+                @Html.DisplayNameFor(model => model.Sales[0].CustomersName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Sales[0].Product)
+                @Html.DisplayNameFor(model => model.Sales[0].ProductsName)
             </th>
             <th></th>
         </tr>
@@ -26,10 +26,10 @@
 @foreach (var item in Model.Sales) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.FirstMidName)
+                @Html.DisplayFor(modelItem => item.CustomersName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductName)
+                @Html.DisplayFor(modelItem => item.ProductsName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.SalesID">Edit</a> |

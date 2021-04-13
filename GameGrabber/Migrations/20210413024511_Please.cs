@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameGrabber.Migrations
 {
-    public partial class please : Migration
+    public partial class Please : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,54 +60,17 @@ namespace GameGrabber.Migrations
                 {
                     SalesID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductID = table.Column<int>(nullable: false),
-                    CustomerID = table.Column<int>(nullable: false),
-                    EmployeeID = table.Column<int>(nullable: false)
+                    CustomersName = table.Column<string>(nullable: true),
+                    ProductsName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sales", x => x.SalesID);
-                    table.ForeignKey(
-                        name: "FK_Sales_Customer_CustomerID",
-                        column: x => x.CustomerID,
-                        principalTable: "Customer",
-                        principalColumn: "CustomerID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Sales_Employee_EmployeeID",
-                        column: x => x.EmployeeID,
-                        principalTable: "Employee",
-                        principalColumn: "EmployeeID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Sales_Product_ProductID",
-                        column: x => x.ProductID,
-                        principalTable: "Product",
-                        principalColumn: "ProductID",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_CustomerID",
-                table: "Sales",
-                column: "CustomerID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_EmployeeID",
-                table: "Sales",
-                column: "EmployeeID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sales_ProductID",
-                table: "Sales",
-                column: "ProductID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Sales");
-
             migrationBuilder.DropTable(
                 name: "Customer");
 
@@ -116,6 +79,9 @@ namespace GameGrabber.Migrations
 
             migrationBuilder.DropTable(
                 name: "Product");
+
+            migrationBuilder.DropTable(
+                name: "Sales");
         }
     }
 }

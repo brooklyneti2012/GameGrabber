@@ -23,9 +23,7 @@ namespace GameGrabber.Pages.SalesPage
 
         public async Task OnGetAsync()
         {
-            Sales = await _context.Sales
-                .Include(s => s.Customer)
-                .Include(s => s.Product).ToListAsync();
+            Sales = await _context.Sales.ToListAsync();
         }
     }
 }
