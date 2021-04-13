@@ -10,7 +10,9 @@ namespace GameGrabber.Models
         public int SalesID { get; set; }
         public int ProductID { get; set; }
         public int CustomerID { get; set; }
+       
         public Customer Customer { get; set; }
         public Product Product { get; set; }
+        
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GameGrabber.Migrations
 {
-    public partial class SalesMan : Migration
+    public partial class please : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,7 +61,8 @@ namespace GameGrabber.Migrations
                     SalesID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductID = table.Column<int>(nullable: false),
-                    CustomerID = table.Column<int>(nullable: false)
+                    CustomerID = table.Column<int>(nullable: false),
+                    EmployeeID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,6 +72,12 @@ namespace GameGrabber.Migrations
                         column: x => x.CustomerID,
                         principalTable: "Customer",
                         principalColumn: "CustomerID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Sales_Employee_EmployeeID",
+                        column: x => x.EmployeeID,
+                        principalTable: "Employee",
+                        principalColumn: "EmployeeID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Sales_Product_ProductID",
@@ -86,6 +93,11 @@ namespace GameGrabber.Migrations
                 column: "CustomerID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Sales_EmployeeID",
+                table: "Sales",
+                column: "EmployeeID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sales_ProductID",
                 table: "Sales",
                 column: "ProductID");
@@ -94,13 +106,13 @@ namespace GameGrabber.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employee");
-
-            migrationBuilder.DropTable(
                 name: "Sales");
 
             migrationBuilder.DropTable(
                 name: "Customer");
+
+            migrationBuilder.DropTable(
+                name: "Employee");
 
             migrationBuilder.DropTable(
                 name: "Product");

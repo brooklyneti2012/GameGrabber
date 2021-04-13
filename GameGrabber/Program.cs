@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using GameGrabber.Data;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace GameGrabber
 {
     public class Program
@@ -29,8 +30,8 @@ namespace GameGrabber
                 try
                 {
                     var context = services.GetRequiredService<GameGrabberContext>();
-                    context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                    //context.Database.EnsureCreated();
+                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

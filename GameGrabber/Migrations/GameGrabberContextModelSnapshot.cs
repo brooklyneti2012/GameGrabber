@@ -102,12 +102,17 @@ namespace GameGrabber.Migrations
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
+                    b.Property<int>("EmployeeID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
                     b.HasKey("SalesID");
 
                     b.HasIndex("CustomerID");
+
+                    b.HasIndex("EmployeeID");
 
                     b.HasIndex("ProductID");
 
@@ -119,6 +124,12 @@ namespace GameGrabber.Migrations
                     b.HasOne("GameGrabber.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GameGrabber.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

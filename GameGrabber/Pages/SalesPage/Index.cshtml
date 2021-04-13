@@ -2,7 +2,7 @@
 @model GameGrabber.Pages.SalesPage.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sales";
 }
 
 <h1>Index</h1>
@@ -26,7 +26,7 @@
 @foreach (var item in Model.Sales) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.LastName)
+                @Html.DisplayFor(modelItem => item.Customer.FirstMidName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ProductName)
